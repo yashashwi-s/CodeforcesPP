@@ -52,6 +52,7 @@ let extensions = {
             { key: "blog"       , title: "Blog"              , href: `/blog/handle/${handle}` }        ,
             { key: "mashups"    , title: "Mashups"           , href: "/mashups" }                      ,
             { key: "rating"     , title: "Rating"            , href: "/ratings" }                      ,
+            { key: "calendar"   , title: "Calendar"          , href: "/calendar" }                     ,
             { key: "api"        , title: "API"               , href: "/apiHelp" }                      ,
 			{ key: "togCoach"   , title: "Toggle Coach Mode" , onClick: toggleCoachMode  }             ,
         ];
@@ -320,4 +321,4 @@ async function updateGroups() {
     }
 }
 
-export { create, open, close, updateGroups };
+export { create, open, close, updateGroups, extensions };

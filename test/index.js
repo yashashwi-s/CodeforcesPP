@@ -13,6 +13,7 @@ import {
 } from '../src/helpers/Functional';
 
 import path from 'path';
+import fs from 'fs';
 
 test.createStream()
     .pipe(tapDiff())
@@ -139,6 +140,21 @@ test('Functional works', t => {
 		t.end();
 	});
 
+    t.end();
+});
+
+test('Finder includes calendar route', t => {
+    const finderSrc = fs.readFileSync(
+        path.join(__dirname, '../src/ext/finder.js'), 'utf8'
+    );
+    t.ok(
+        finderSrc.includes('"/calendar"'),
+        'finder common extensions should contain the /calendar route'
+    );
+    t.ok(
+        /key:\s*["']calendar["']/.test(finderSrc),
+        'finder common extensions should have a "calendar" key'
+    );
     t.end();
 });
 
